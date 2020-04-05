@@ -1,0 +1,28 @@
+version: '3.3'
+services: 
+  s6_blockchain:
+    build: .
+    image: s6_blockchain
+    ports: 
+      - "4000:4000"
+      - "4001:5000"
+    expose: 
+      - 4000
+      - 4001
+    container_name: s6_blockchain
+    restart: unless-stopped  
+    networks:
+      - pgnet
+    
+  blcokchain_postgres:
+    container_name: postgres
+    image: postgres:12-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pass1234
+      POSTGRES_USER: lisk
+      POSTGRES_DB: lisk_dev
+    ports:
+      - 5432:5432
+    networks:
+      - pgnet

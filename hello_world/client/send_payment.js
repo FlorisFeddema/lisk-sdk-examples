@@ -21,16 +21,16 @@ const getTimestamp = () => {
     return parseInt(inSeconds);
 };
 
-const amount = "10";
+const amount = "1";
 
 const tx = new PaymentTransaction({
     asset: {
         "Homo": "Davy",
         "amount": transactions.utils.convertLSKToBeddows(amount),
-        "recipientId": "7082395287368165918L",
+        "recipientId": "18292252430058064438L",
     },
     amount: transactions.utils.convertLSKToBeddows(amount),
-    recipientId: "7082395287368165918L",
+    recipientId: "18292252430058064438L",
     networkIdentifier: networkIdentifier,
   timestamp: getTimestamp(),
 });

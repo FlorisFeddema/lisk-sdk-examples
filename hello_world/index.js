@@ -4,8 +4,8 @@ const PaymentTransaction = require('./payment_transaction');
 
 configDevnet.app.label = 'HelloWorld-blockchain-app';
 
-configDevnet.components.storage.database = 'lisk_dev2'; //server
-// configDevnet.components.storage.database = 'lisk_dev3'; //local
+// configDevnet.components.storage.database = 'lisk_dev2'; //server
+configDevnet.components.storage.database = 'lisk_dev3'; //local
 configDevnet.components.storage.host = 'postgres.feddema.dev';
 configDevnet.components.storage.port = 5433;
 configDevnet.components.storage.user = 'lisk';
