@@ -25,7 +25,6 @@ const amount = "1";
 
 const tx = new PaymentTransaction({
     asset: {
-        "Homo": "Davy",
         "amount": transactions.utils.convertLSKToBeddows(amount),
         "recipientId": "18292252430058064438L",
     },

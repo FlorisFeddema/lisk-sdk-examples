@@ -1,23 +1,14 @@
-const {
-    BaseTransaction,
-    TransactionError
-} = require('@liskhq/lisk-transactions');
+const {BaseTransaction, TransactionError} = require('@liskhq/lisk-transactions');
 
 class HelloTransaction extends BaseTransaction {
 
-	static get TYPE () {
-		return 20;
-	};
+	static get TYPE () {return 20;};
 
-	static get FEE () {
-		return `${10 ** 8}`;
-	};
+	static get FEE () {return `${10 ** 8}`;};
 
 	async prepare(store) {
 		await store.account.cache([
-			{
-				address: this.senderId,
-			},
+			{address: this.senderId,},
 		]);
 	}
 
@@ -40,10 +31,8 @@ class HelloTransaction extends BaseTransaction {
 	applyAsset(store) {
         const errors = [];
         const sender = store.account.get(this.senderId);
-
         const newObj = { ...sender, asset: { hello: this.asset.hello } };
         store.account.set(sender.address, newObj);
-
         return errors; // array of TransactionErrors, returns empty array if no errors are thrown
 	}
 
